@@ -130,38 +130,40 @@ class _PrintScreenState extends State<PrintScreen> {
             hint: 'Urgent | Normal | As-slowly-as-possible',
             label: 'Urgency',
           ),
-          const Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop(context);
-                },
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.grey.shade700),
+          // const Spacer(),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(context);
+                  },
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.grey.shade700),
+                  ),
+                  child: const SizedBox(
+                    width: 150.0,
+                    height: 40.0,
+                    child: Center(child: Text('Back to previous page')),
+                  ),
                 ),
-                child: const SizedBox(
-                  width: 150.0,
-                  height: 40.0,
-                  child: Center(child: Text('Back to previous page')),
+                ElevatedButton(
+                  onPressed: () {
+                    _handlePrint();
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.green),
+                  ),
+                  child: const SizedBox(
+                    width: 80.0,
+                    height: 40.0,
+                    child: Center(child: Text('Print')),
+                  ),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  _handlePrint();
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.green),
-                ),
-                child: const SizedBox(
-                  width: 80.0,
-                  height: 40.0,
-                  child: Center(child: Text('Print')),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(
             height: 40.0,
@@ -173,12 +175,6 @@ class _PrintScreenState extends State<PrintScreen> {
 
   // print action handler
   Future<void> _handlePrint() async {
-    // final pw.Document pdf = await PrinterService.generatePDF(
-    //   title: docTitle.text,
-
-    //   format: PdfPageFormat.a4, // use A4 page dimensions and formatting
-    // );
-
     try {
       int.parse(age.text);
     } catch (e) {
