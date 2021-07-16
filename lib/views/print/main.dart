@@ -3,7 +3,6 @@ import 'package:plateaumed_printing_research/models/prescription_model.dart';
 import 'package:plateaumed_printing_research/widgets/text_input.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:plateaumed_printing_research/services/print/main.dart';
 import 'package:printing/printing.dart';
 
 class PrintScreen extends StatefulWidget {
